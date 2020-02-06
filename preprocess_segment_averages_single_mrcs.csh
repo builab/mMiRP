@@ -1,6 +1,11 @@
 #!/usr/bin/env csh 
 
 #Joe Atherton 30/01/19#
+#HB 2020/02/04
+#Change to process 1 mrcs at a time, then you can parallel it using GNU parallel
+#Also, if output file _SAs_norm.mrcs is already present, it will skip to avoid doing everything all over again
+#ls Micro*[0-9].mrcs | parallel --jobs 2 "csh ./preprocess_segment_averages_single_mrcs.csh {} 150"
+#Also, this script fails if the MT has only 1 particles (picking at the edge).
 
 #TAKES RELION .MRCS STACKS AND .STAR FILES (IN EXTRACT FOLDER) WITH SEVERAL MTS AND THEIR SEGMENTS, DECONSTRUCTS INTO INVDIVDUAL MTS THEN MAKES SEGMENT AVERAGES FOR EACH MT, THEN RESTACKS INTO ONE SEGMENT AVERAGE STACK PER MT
 
