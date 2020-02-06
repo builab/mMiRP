@@ -5,7 +5,7 @@
 #Change to process 1 mrcs at a time, then you can parallel it using GNU parallel
 #Also, if output file _SAs_norm.mrcs is already present, it will skip to avoid doing everything all over again
 #ls Micro*[0-9].mrcs | parallel --jobs 2 "csh ./preprocess_segment_averages_single_mrcs.csh {} 150"
-#Also, this script fails if the MT has only 1 particles (picking at the edge).
+#Fix the problem with MT with only 1 particle (picking at the edge).
 
 #TAKES RELION .MRCS STACKS AND .STAR FILES (IN EXTRACT FOLDER) WITH SEVERAL MTS AND THEIR SEGMENTS, DECONSTRUCTS INTO INVDIVDUAL MTS THEN MAKES SEGMENT AVERAGES FOR EACH MT, THEN RESTACKS INTO ONE SEGMENT AVERAGE STACK PER MT
 
@@ -194,156 +194,156 @@ set MT30_end_section = `echo $MT29_end_section $number_of_segments_MT30 | awk '{
 
 #Splits original .mrcs segments stack for each micrograph in to individual microtubules.IN PROGRESS. Only for MAX 30 MTs so far.
 
-if ($number_of_segments_MT1 >1) then
+if ($number_of_segments_MT1 >0) then
 newstack -NumberedFromOne -secs $MT1_start_section-$MT1_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT01.mrcs
 echo $number_of_segments_MT1 > $micrograph_stack:r_MT01.data
 endif
 
-if ($number_of_segments_MT2 >1) then
+if ($number_of_segments_MT2 >0) then
 newstack -NumberedFromOne -secs $MT2_start_section-$MT2_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT02.mrcs
 echo $number_of_segments_MT2 > $micrograph_stack:r_MT02.data
 endif
 
-if ($number_of_segments_MT3 >1) then
+if ($number_of_segments_MT3 >0) then
 newstack -NumberedFromOne -secs $MT3_start_section-$MT3_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT03.mrcs
 echo $number_of_segments_MT3 > $micrograph_stack:r_MT03.data
 endif
 
-if ($number_of_segments_MT4 >1) then
+if ($number_of_segments_MT4 >0) then
 newstack -NumberedFromOne -secs $MT4_start_section-$MT4_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT04.mrcs
 echo $number_of_segments_MT4 > $micrograph_stack:r_MT04.data
 endif
 
-if ($number_of_segments_MT5 >1) then
+if ($number_of_segments_MT5 >0) then
 newstack -NumberedFromOne -secs $MT5_start_section-$MT5_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT05.mrcs
 echo $number_of_segments_MT5 > $micrograph_stack:r_MT05.data
 endif
 
-if ($number_of_segments_MT6 >1) then
+if ($number_of_segments_MT6 >0) then
 newstack -NumberedFromOne -secs $MT6_start_section-$MT6_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT06.mrcs
 echo $number_of_segments_MT6 > $micrograph_stack:r_MT06.data
 endif
 
-if ($number_of_segments_MT7 >1) then
+if ($number_of_segments_MT7 >0) then
 newstack -NumberedFromOne -secs $MT7_start_section-$MT7_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT07.mrcs
 echo $number_of_segments_MT7 > $micrograph_stack:r_MT07.data
 endif
 
-if ($number_of_segments_MT8 >1) then
+if ($number_of_segments_MT8 >0) then
 newstack -NumberedFromOne -secs $MT8_start_section-$MT8_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT08.mrcs
 echo $number_of_segments_MT8 > $micrograph_stack:r_MT08.data
 endif
 
-if ($number_of_segments_MT9 >1) then
+if ($number_of_segments_MT9 >0) then
 newstack -NumberedFromOne -secs $MT9_start_section-$MT9_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT09.mrcs
 echo $number_of_segments_MT9 > $micrograph_stack:r_MT09.data
 endif
 
-if ($number_of_segments_MT10 >1) then
+if ($number_of_segments_MT10 >0) then
 newstack -NumberedFromOne -secs $MT10_start_section-$MT10_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT10.mrcs
 echo $number_of_segments_MT10 > $micrograph_stack:r_MT10.data
 endif
 
 ###
 
-if ($number_of_segments_MT11 >1) then
+if ($number_of_segments_MT11 >0) then
 newstack -NumberedFromOne -secs $MT11_start_section-$MT11_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT11.mrcs
 echo $number_of_segments_MT11 > $micrograph_stack:r_MT11.data
 endif
 
-if ($number_of_segments_MT12 >1) then
+if ($number_of_segments_MT12 >0) then
 newstack -NumberedFromOne -secs $MT12_start_section-$MT12_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT12.mrcs
 echo $number_of_segments_MT12 > $micrograph_stack:r_MT12.data
 endif
 
-if ($number_of_segments_MT13 >1) then
+if ($number_of_segments_MT13 >0) then
 newstack -NumberedFromOne -secs $MT13_start_section-$MT13_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT13.mrcs
 echo $number_of_segments_MT13 > $micrograph_stack:r_MT13.data
 endif
 
-if ($number_of_segments_MT14 >1) then
+if ($number_of_segments_MT14 >0) then
 newstack -NumberedFromOne -secs $MT14_start_section-$MT14_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT14.mrcs
 echo $number_of_segments_MT14 > $micrograph_stack:r_MT14.data
 endif
 
-if ($number_of_segments_MT15 >1) then
+if ($number_of_segments_MT15 >0) then
 newstack -NumberedFromOne -secs $MT15_start_section-$MT15_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT15.mrcs
 echo $number_of_segments_MT15 > $micrograph_stack:r_MT15.data
 endif
 
-if ($number_of_segments_MT16 >1) then
+if ($number_of_segments_MT16 >0) then
 newstack -NumberedFromOne -secs $MT16_start_section-$MT16_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT16.mrcs
 echo $number_of_segments_MT16 > $micrograph_stack:r_MT16.data
 endif
 
-if ($number_of_segments_MT17 >1) then
+if ($number_of_segments_MT17 >0) then
 newstack -NumberedFromOne -secs $MT7_start_section-$MT17_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT17.mrcs
 echo $number_of_segments_MT17 > $micrograph_stack:r_MT17.data
 endif
 
-if ($number_of_segments_MT18 >1) then
+if ($number_of_segments_MT18 >0) then
 newstack -NumberedFromOne -secs $MT18_start_section-$MT18_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT18.mrcs
 echo $number_of_segments_MT18 > $micrograph_stack:r_MT18.data
 endif
 
-if ($number_of_segments_MT19 >1) then
+if ($number_of_segments_MT19 >0) then
 newstack -NumberedFromOne -secs $MT19_start_section-$MT19_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT19.mrcs
 echo $number_of_segments_MT19 > $micrograph_stack:r_MT19.data
 endif
 
-if ($number_of_segments_MT20 >1) then
+if ($number_of_segments_MT20 >0) then
 newstack -NumberedFromOne -secs $MT20_start_section-$MT20_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT20.mrcs
 echo $number_of_segments_MT20 > $micrograph_stack:r_MT20.data
 endif
 
 ###
 
-if ($number_of_segments_MT21 >1) then
+if ($number_of_segments_MT21 >0) then
 newstack -NumberedFromOne -secs $MT21_start_section-$MT21_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT21.mrcs
 echo $number_of_segments_MT21 > $micrograph_stack:r_MT21.data
 endif
 
-if ($number_of_segments_MT22 >1) then
+if ($number_of_segments_MT22 >0) then
 newstack -NumberedFromOne -secs $MT22_start_section-$MT22_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT22.mrcs
 echo $number_of_segments_MT22 > $micrograph_stack:r_MT22.data
 endif
 
-if ($number_of_segments_MT23 >1) then
+if ($number_of_segments_MT23 >0) then
 newstack -NumberedFromOne -secs $MT23_start_section-$MT23_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT23.mrcs
 echo $number_of_segments_MT23 > $micrograph_stack:r_MT23.data
 endif
 
-if ($number_of_segments_MT24 >1) then
+if ($number_of_segments_MT24 >0) then
 newstack -NumberedFromOne -secs $MT24_start_section-$MT24_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT24.mrcs
 echo $number_of_segments_MT24 > $micrograph_stack:r_MT24.data
 endif
 
-if ($number_of_segments_MT25 >1) then
+if ($number_of_segments_MT25 >0) then
 newstack -NumberedFromOne -secs $MT25_start_section-$MT25_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT25.mrcs
 echo $number_of_segments_MT25 > $micrograph_stack:r_MT25.data
 endif
 
-if ($number_of_segments_MT26 >1) then
+if ($number_of_segments_MT26 >0) then
 newstack -NumberedFromOne -secs $MT26_start_section-$MT26_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT26.mrcs
 echo $number_of_segments_MT26 > $micrograph_stack:r_MT26.data
 endif
 
-if ($number_of_segments_MT27 >1) then
+if ($number_of_segments_MT27 >0) then
 newstack -NumberedFromOne -secs $MT27_start_section-$MT27_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT27.mrcs
 echo $number_of_segments_MT27 > $micrograph_stack:r_MT27.data
 endif
 
-if ($number_of_segments_MT28 >1) then
+if ($number_of_segments_MT28 >0) then
 newstack -NumberedFromOne -secs $MT28_start_section-$MT28_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT28.mrcs
 echo $number_of_segments_MT28 > $micrograph_stack:r_MT28.data
 endif
 
-if ($number_of_segments_MT29 >1) then
+if ($number_of_segments_MT29 >0) then
 newstack -NumberedFromOne -secs $MT29_start_section-$MT29_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT29.mrcs
 echo $number_of_segments_MT29 > $micrograph_stack:r_MT29.data
 endif
 
-if ($number_of_segments_MT30 >1) then
+if ($number_of_segments_MT30 >0) then
 newstack -NumberedFromOne -secs $MT30_start_section-$MT30_end_section $micrograph_stack:r.mrcs $micrograph_stack:r_MT30.mrcs
 echo $number_of_segments_MT30 > $micrograph_stack:r_MT30.data
 endif
@@ -356,7 +356,7 @@ endif
 #average_MT_sections for all MTs (MT segment averages are an average of 7 around a central original particle (central particle + 3 either side). ONLY PROCESSES 90 boxes SO FAR.
 #Wont be many more (consider diagonal MTs) than only ~100 images max per MT per micrograph (4000pix K2 field of view. To find diagonal (max distance) 4000 x SQRT of 2 = 5656 pixels.7863A at a pixel size of 1.39A/pix. So equivalent of 5560/82 is 95 x 82A repeats.
 
-foreach MT_stack (`ls -1 ./${base_name}_*MT??.mrcs`)
+foreach MT_stack (`ls -1 ./${base_name}_MT??.mrcs`)
 echo 'working on' $MT_stack
 
 set number_of_segments = `grep '' $MT_stack:r.data`
