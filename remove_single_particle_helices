@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#script to remove helical tubes with only one particle NOTE: use after scaling helical track length
+
+#make a table with the helical tube ID and the micrograph name
+relion_star_printtable particles_SA.star data_particles rlnHelicalTubeID rlnMicrographName > helix_micrograph.txt
+
+#print the unique lines (helical tubes with only one particle)
+uniq -u helix_micrograph.txt helix_micro_uniq.txt
+
+#determine which whole lines to remove from the particles.star file
+awk 'FILENAME=="helix_micro_uniq.txt"{A[$1$2]=$1$2}
+FILENAME=="particles_SA.star"{if(A[$3$10]){print}}' helix_micro_uniq.txt particles_SA.star > lines_to_remove.txt
+
+
+#remove the relevant lines from the particles.star file & create new trimmed file
+
+grep -Fvx -f lines_to_remove.txt particles_SA.star > trim_part.star &&
+mv trim_part.star particles_SA_trimmed.star
+
+
+
