@@ -10,7 +10,7 @@ set star_file=$1
 
 #copy headers to new file
 echo ' ' > $star_file:r_reset_angles_to_priors.star
-echo 'data_images' >> $star_file:r_reset_angles_to_priors.star
+echo 'data_particles' >> $star_file:r_reset_angles_to_priors.star
 echo ' ' >> $star_file:r_reset_angles_to_priors.star
 echo 'loop_' >> $star_file:r_reset_angles_to_priors.star
 
