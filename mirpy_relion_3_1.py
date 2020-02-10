@@ -103,7 +103,7 @@ def write_star(name,lbls,array):
 
     outf = open('%s.star' % name,'w')
     
-    outf.write('\ndata_\n\nloop_\n')
+    outf.write('\ndata_particles\n\nloop_\n')
     
     for i,l in enumerate(lbls):
         outf.write('_%s #%i\n' % (l,i+1) )
