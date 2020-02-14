@@ -29,16 +29,16 @@ echo | paste $star_file:r_temp2.star $class_3D_star_file:r_temp2.star >> $class_
 #################
 
 
-#copy headers to new 11pf class file
+#copy headers to new doublet class file
 echo ' ' > $class_3D_star_file:r_doublet_class.star
-echo 'data_images' >> $class_3D_star_file:r_doublet_class.star
+echo 'data_particles' >> $class_3D_star_file:r_doublet_class.star
 echo ' ' >> $class_3D_star_file:r_doublet_class.star
 echo 'loop_' >> $class_3D_star_file:r_doublet_class.star
 #copy column headers to new 11pf class files
 echo | grep '_rln*' $class_3D_star_file >> $class_3D_star_file:r_doublet_class.star
 #add extra column of unique MT number
 
-#copy headers to new 12pf class file
+#copy headers to new singlet class file
 echo ' ' > $class_3D_star_file:r_atubule_class.star
 echo 'data_particles' >> $class_3D_star_file:r_atubule_class.star
 echo ' ' >> $class_3D_star_file:r_atubule_class.star
