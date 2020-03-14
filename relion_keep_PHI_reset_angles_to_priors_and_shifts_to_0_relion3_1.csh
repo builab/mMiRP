@@ -4,7 +4,7 @@ set star_file=$1
 sed -n '/data_particles/,$p' $star_file > data_temp.star
 
 #copy headers to new file
-sed -n '1,/data_particles/p' $star_file > $star_file:r_reset_angles_to_priors.star
+sed -n '1,/data_particles/p' $star_file >> $star_file:r_reset_angles_to_priors.star
 echo ' ' > $star_file:r_reset_angles_to_priors.star
 echo 'loop_' >> $star_file:r_reset_angles_to_priors.star
 
