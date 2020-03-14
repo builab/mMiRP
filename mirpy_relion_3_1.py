@@ -323,7 +323,7 @@ if args.ang:
 
     ptcls = [ptcl for MT in MTs for ptcl in MT]                
 
-    write_star( 'smoothened_%s_data' % args.id, MetaDataLabels, ptcls )
+    write_star( 'smoothened_%s_data_trim' % args.id, MetaDataLabels, ptcls )
 
 
 elif args.xy:
@@ -354,7 +354,7 @@ elif args.xy:
         
     ptcls=[ptcl for MT in MTs for ptcl in MT]    
         
-    write_star('smoothenedXY_data', MetaDataLabels, ptcls)
+    write_star('smoothenedXY_data_trim', MetaDataLabels, ptcls)
 
 
 elif args.p:
