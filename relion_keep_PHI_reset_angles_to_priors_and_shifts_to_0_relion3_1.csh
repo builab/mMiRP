@@ -1,3 +1,5 @@
+#!/bin/csh
+# For newest Relion 3.1 commit with 32 column instead of 30
 
 set star_file=$1
 
