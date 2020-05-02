@@ -3,24 +3,18 @@
 #Joe Atherton 30/01/19#
 #HB 2020/02/04
 #Change to process 1 mrcs at a time, then you can parallel it using GNU parallel
-#Also, if output file _SAs_norm.mrcs is already present, it will skip to avoid doing everything all over again
-#ls Micro*[0-9].mrcs | parallel --jobs 2 "csh ./preprocess_segment_averages_single_mrcs.csh {} 150"
 #Fix the problem with MT with only 1 particle (picking at the edge).
+#csh ./preprocess_segment_averages_single_mrcs.csh MT_0001.mrcs 150
+# 150 = boxsize
+#If output file _SAs_norm.mrcs is already present, it will skip to avoid doing everything all over again
+#To run all of the mrcs all at once
+#ls Micro*[0-9].mrcs | parallel --jobs 2 "csh ./preprocess_segment_averages_single_mrcs.csh {} 150"
 
-#TAKES RELION .MRCS STACKS AND .STAR FILES (IN EXTRACT FOLDER) WITH SEVERAL MTS AND THEIR SEGMENTS, DECONSTRUCTS INTO INVDIVDUAL MTS THEN MAKES SEGMENT AVERAGES FOR EACH MT, THEN RESTACKS INTO ONE SEGMENT AVERAGE STACK PER MT
 
-#Run as: source preprocess_segment_averages.csh 108, where 108 is the boxsize
 
 
 ##############################################################
 #Will need to source imod, bsoft and relion/v3.0/beta4. Modify the below accordingly for your institute's computing set up.
-
-module load eman/2.21
-module load imod
-module load bsoft
-module load relion/3.1.1
-
-##############################################################
 
 ##############################################################
 
