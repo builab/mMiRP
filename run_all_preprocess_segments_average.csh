@@ -2,6 +2,7 @@
 # Load imod, bsoft and relion
 # With the module command, you need to source
 # source ~/run_all_preprocess_segments_average.csh
+# Modify the number 150 to your right box size
 
 module load imod
 module load bsoft
