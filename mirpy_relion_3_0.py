@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 ''' 
+Only intended use for Relion 3.0
 For use with the microtubule relion based pipeline (MiRP)
 Protocols for smoothening the Rot angle and X/Y shifts
 from widely distributed values.
@@ -9,7 +10,7 @@ and X/Y shift plots, removing microtubules below a certain
 particle number, and plotting the confidence of protofilament
 and seam position classification, with the option to remove
 microtubules below a certain confidence.
-Fix problem with XYshift - HB 2020/05/07
+Fix problem with XYshift when there are not many particles - HB 2020/05/07
 '''
 
 __author__ = "Alex Cook" 
@@ -341,13 +342,12 @@ elif args.xy:
         Ysh = [ i[yshIDX] for i in MT]
 
         xax=[ i for i in range(1, len(Xsh) + 1 ) ]
-        print(MTs[mtID])
-        print(MTs[mtID])
+        # print(MTs[mtID])
         uniX = flatten_and_cluster_shifts(Xsh)
         uniY = flatten_and_cluster_shifts(Ysh)
                 
         for i in range(len(MT)):
-            print(MTs[mtID][i][mgphIDX])
+            # print(MTs[mtID][i][mgphIDX])
             MTs[mtID][i][xshIDX] = uniX[i]
             MTs[mtID][i][yshIDX] = uniY[i]    
         
